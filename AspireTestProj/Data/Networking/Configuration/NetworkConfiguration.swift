@@ -7,10 +7,20 @@
 
 import Foundation
 
+enum NetworkBases {
+    case gistsBase
+    case gistsRaw
+}
+
 class NetworkConfiguration {
+    
+    private static let base = NetworkBases.gistsRaw
 
     // MARK: - Computed properties
     static public var baseURL: String {
-        return "https://api.github.com"
+        switch base {
+        case .gistsBase: return "https://api.github.com"
+        case .gistsRaw: return "https://gist.githubusercontent.com"
+        }
     }
 }
