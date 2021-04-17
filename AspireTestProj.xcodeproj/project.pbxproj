@@ -13,6 +13,7 @@
 		8FFF8F34262A15AF00DD137F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFF8F33262A15AF00DD137F /* Assets.xcassets */; };
 		8FFF8F37262A15AF00DD137F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFF8F35262A15AF00DD137F /* LaunchScreen.storyboard */; };
 		8FFF8F48262A17DC00DD137F /* CurriculumVitaeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF8F47262A17DC00DD137F /* CurriculumVitaeViewController.swift */; };
+		8FFF8F50262A1AD100DD137F /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF8F4F262A1AD100DD137F /* NetworkConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8FFF8F36262A15AF00DD137F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FFF8F38262A15AF00DD137F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFF8F47262A17DC00DD137F /* CurriculumVitaeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumVitaeViewController.swift; sourceTree = "<group>"; };
+		8FFF8F4F262A1AD100DD137F /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		8FFF8F4B262A191500DD137F /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				8FFF8F4F262A1AD100DD137F /* NetworkConfiguration.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				8FFF8F2B262A15AE00DD137F /* AppDelegate.swift in Sources */,
 				8FFF8F48262A17DC00DD137F /* CurriculumVitaeViewController.swift in Sources */,
 				8FFF8F2D262A15AE00DD137F /* SceneDelegate.swift in Sources */,
+				8FFF8F50262A1AD100DD137F /* NetworkConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
