@@ -33,6 +33,7 @@ class CurriculumVitaeViewController: UIViewController {
         tableView.register(SummaryTableViewCell.nib, forCellReuseIdentifier: SummaryTableViewCell.reuseIdentifier)
         tableView.register(WorkExperienceTableViewCell.nib, forCellReuseIdentifier: WorkExperienceTableViewCell.reuseIdentifier)
         tableView.register(EducationTableViewCell.nib, forCellReuseIdentifier: EducationTableViewCell.reuseIdentifier)
+        tableView.register(SkillsTableViewCell.nib, forCellReuseIdentifier: SkillsTableViewCell.reuseIdentifier)
     }
     
     func configureVM() {
@@ -48,7 +49,7 @@ class CurriculumVitaeViewController: UIViewController {
 extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -56,6 +57,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         case 0: return "Personal Info"
         case 1: return "Work Experience"
         case 2: return "Education"
+        case 3: return "Skills"
         default: return ""
         }
     }
@@ -65,6 +67,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         case 0: return 2
         case 1: return viewModel.person.workExperience?.count ?? 0
         case 2: return viewModel.person.education?.count ?? 0
+        case 3: return 1
         default: return 0
         }
     }
@@ -78,6 +81,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
             return summaryCell(for: tableView, at: indexPath)
         case IndexPath(item: indexPath.row, section: 1): return workExperienceCell(for: tableView, at: indexPath)
         case IndexPath(item: indexPath.row, section: 2): return educationCell(for: tableView, at: indexPath)
+        case IndexPath(item: 0, section: 3): return skillsCell(for: tableView, at: indexPath)
         default: return UITableViewCell()
         }
     }
@@ -88,6 +92,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         case IndexPath(item: 1, section: 0): return 120
         case IndexPath(item: indexPath.row, section: 1): return 181
         case IndexPath(item: indexPath.row, section: 2): return 124
+        case IndexPath(item: 0, section: 3): return 59
         default: return 40
         }
     }
@@ -127,6 +132,13 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         guard let education = viewModel.person.education?[indexPath.row] else { return UITableViewCell() }
         cell.dataConfiguration(schoolName: education.name, yearsOfStudying: education.years)
         
+        return cell
+    }
+    
+    func skillsCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SkillsTableViewCell.reuseIdentifier, for: indexPath) as? SkillsTableViewCell else { return UITableViewCell() }
+        
+        cell.dataConfiguration(skills: viewModel.person.skills ?? [])
         return cell
     }
 }
