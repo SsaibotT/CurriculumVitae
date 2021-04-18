@@ -16,8 +16,8 @@ class CurriculumVitaeViewController: UIViewController {
     
     // MARK: - Properties
     private var cancelation: Set<AnyCancellable> = []
-    let viewModel = CurriculumVitaeViewModel()
-    var refreshControl = UIRefreshControl()
+    private let viewModel = CurriculumVitaeViewModel()
+    private var refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,13 +28,13 @@ class CurriculumVitaeViewController: UIViewController {
     }
     
     // MARK: - Configure UI
-    func configureUI() {
+    private func configureUI() {
         
         configureTableViewRegistering()
         configurePullToRefresh()
     }
     
-    func configureTableViewRegistering() {
+    private func configureTableViewRegistering() {
         tableView.register(PersonalInfoTableViewCell.nib, forCellReuseIdentifier: PersonalInfoTableViewCell.reuseIdentifier)
         tableView.register(SummaryTableViewCell.nib, forCellReuseIdentifier: SummaryTableViewCell.reuseIdentifier)
         tableView.register(WorkExperienceTableViewCell.nib, forCellReuseIdentifier: WorkExperienceTableViewCell.reuseIdentifier)
@@ -42,18 +42,18 @@ class CurriculumVitaeViewController: UIViewController {
         tableView.register(SkillsTableViewCell.nib, forCellReuseIdentifier: SkillsTableViewCell.reuseIdentifier)
     }
     
-    func configurePullToRefresh() {
+    private func configurePullToRefresh() {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(_ sender: AnyObject) {
+    @objc private func refresh(_ sender: AnyObject) {
         viewModel.loadPerson.send(())
     }
     
     // MARK: - Configure VM
-    func configureVM() {
+    private func configureVM() {
         
         viewModel.$person
             .dropFirst()
@@ -118,7 +118,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     // MARK: - Creating cells
-    func personalInfo(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    private func personalInfo(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonalInfoTableViewCell.reuseIdentifier, for: indexPath) as? PersonalInfoTableViewCell else { return UITableViewCell() }
         
@@ -128,14 +128,14 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    func summaryCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    private func summaryCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SummaryTableViewCell.reuseIdentifier, for: indexPath) as? SummaryTableViewCell else { return UITableViewCell() }
         
         cell.dataConfiguration(summaryText: viewModel.person.sumarry ?? "")
         return cell
     }
     
-    func workExperienceCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    private func workExperienceCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkExperienceTableViewCell.reuseIdentifier, for: indexPath) as? WorkExperienceTableViewCell else { return UITableViewCell() }
         
         guard let workExperience = viewModel.person.workExperience?[indexPath.row] else { return UITableViewCell() }
@@ -146,7 +146,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    func educationCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    private func educationCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EducationTableViewCell.reuseIdentifier, for: indexPath) as? EducationTableViewCell else { return UITableViewCell() }
         
         guard let education = viewModel.person.education?[indexPath.row] else { return UITableViewCell() }
@@ -155,7 +155,7 @@ extension CurriculumVitaeViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    func skillsCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    private func skillsCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SkillsTableViewCell.reuseIdentifier, for: indexPath) as? SkillsTableViewCell else { return UITableViewCell() }
         
         cell.dataConfiguration(skills: viewModel.person.skills ?? [])
