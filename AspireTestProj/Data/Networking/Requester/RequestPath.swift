@@ -14,7 +14,7 @@ enum RequestPath {
     // MARK: - String representation
     private var pathValue: String {
         switch self {
-        case .rawPath: return "/SsaibotT/7aaf7ce50fdd9194e3023aa190238eb1/raw/bb1488535e90af9913f3ef6efbc2ad16f05771cf/gistfile1.json"
+        case .rawPath: return "/SsaibotT/7aaf7ce50fdd9194e3023aa190238eb1/raw/ed8ce20562c0b5424a91ce7619312e7b42032d3d/gistfile1.json"
         }
     }
     
