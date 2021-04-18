@@ -31,6 +31,14 @@ class PersonalInfoTableViewCell: UITableViewCell, NibLoadable {
     func dataConfiguration(fullName: String, city: String) {
         fullNameLabel.text = fullName
         cityLabel.text = city
+        configureImageView()
+    }
+    
+    private func configureImageView() {
         avatarImageView.image = UIImage(named: "Avatar")
+        avatarImageView.layer.cornerRadius = 10.0
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.layer.borderColor = UIColor.lightGray.cgColor
+        avatarImageView.layer.borderWidth = 3.0
     }
 }
