@@ -18,6 +18,8 @@
 		8F6D24E2262C63CA00620C41 /* PersonalInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D24E0262C63CA00620C41 /* PersonalInfoTableViewCell.xib */; };
 		8F6D24E9262C785F00620C41 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D24E7262C785E00620C41 /* SummaryTableViewCell.swift */; };
 		8F6D24EA262C785F00620C41 /* SummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D24E8262C785E00620C41 /* SummaryTableViewCell.xib */; };
+		8F6D24FD262C8A4900620C41 /* WorkExperienceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D24FB262C8A4900620C41 /* WorkExperienceTableViewCell.swift */; };
+		8F6D24FE262C8A4900620C41 /* WorkExperienceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D24FC262C8A4900620C41 /* WorkExperienceTableViewCell.xib */; };
 		8FDBD336262AF23600F4DB7D /* RequestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDBD335262AF23600F4DB7D /* RequestPath.swift */; };
 		8FDBD35A262B07E900F4DB7D /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDBD359262B07E900F4DB7D /* Requester.swift */; };
 		8FFF8F2B262A15AE00DD137F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF8F2A262A15AE00DD137F /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 		8F6D24E0262C63CA00620C41 /* PersonalInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalInfoTableViewCell.xib; sourceTree = "<group>"; };
 		8F6D24E7262C785E00620C41 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		8F6D24E8262C785E00620C41 /* SummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryTableViewCell.xib; sourceTree = "<group>"; };
+		8F6D24FB262C8A4900620C41 /* WorkExperienceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkExperienceTableViewCell.swift; sourceTree = "<group>"; };
+		8F6D24FC262C8A4900620C41 /* WorkExperienceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkExperienceTableViewCell.xib; sourceTree = "<group>"; };
 		8FDBD335262AF23600F4DB7D /* RequestPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPath.swift; sourceTree = "<group>"; };
 		8FDBD359262B07E900F4DB7D /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		8FFF8F27262A15AE00DD137F /* AspireTestProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AspireTestProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,7 @@
 		8F6D24D4262C5C5500620C41 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				8F6D24ED262C82B200620C41 /* WorkExperience */,
 				8F6D24E6262C784700620C41 /* Summary */,
 				8F6D24DE262C5CEA00620C41 /* PersonalInfo */,
 				8F6D24D5262C5C7100620C41 /* XibView.swift */,
@@ -99,6 +104,15 @@
 				8F6D24E8262C785E00620C41 /* SummaryTableViewCell.xib */,
 			);
 			path = Summary;
+			sourceTree = "<group>";
+		};
+		8F6D24ED262C82B200620C41 /* WorkExperience */ = {
+			isa = PBXGroup;
+			children = (
+				8F6D24FB262C8A4900620C41 /* WorkExperienceTableViewCell.swift */,
+				8F6D24FC262C8A4900620C41 /* WorkExperienceTableViewCell.xib */,
+			);
+			path = WorkExperience;
 			sourceTree = "<group>";
 		};
 		8FFF8F1E262A15AE00DD137F = {
@@ -298,6 +312,7 @@
 				8F6D24E2262C63CA00620C41 /* PersonalInfoTableViewCell.xib in Resources */,
 				8F6D24EA262C785F00620C41 /* SummaryTableViewCell.xib in Resources */,
 				8FFF8F34262A15AF00DD137F /* Assets.xcassets in Resources */,
+				8F6D24FE262C8A4900620C41 /* WorkExperienceTableViewCell.xib in Resources */,
 				8FFF8F32262A15AE00DD137F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +338,7 @@
 				8F6D24D6262C5C7100620C41 /* XibView.swift in Sources */,
 				8F6D24DB262C5CA400620C41 /* NibLoadable.swift in Sources */,
 				8F6D24E9262C785F00620C41 /* SummaryTableViewCell.swift in Sources */,
+				8F6D24FD262C8A4900620C41 /* WorkExperienceTableViewCell.swift in Sources */,
 				8F6D24D2262C526900620C41 /* CurriculumVitaeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
