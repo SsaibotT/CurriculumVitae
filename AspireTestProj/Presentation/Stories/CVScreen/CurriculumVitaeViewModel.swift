@@ -13,12 +13,23 @@ class CurriculumVitaeViewModel: ObservableObject {
     // MARK: - Properties
     private var cancelation: Set<AnyCancellable> = []
     
+    // MARK: - Input
+    var loadPerson = PassthroughSubject<Void, Never>()
+    
     // MARK: - Output
     @Published var person = Person.emptyModel
     
     // MARK: - Lifecycle
     init() {
+        configureCombine()
         getPerson()
+    }
+    
+    // MARK: - Configure Combine
+    private func configureCombine() {
+        loadPerson
+            .sink { [weak self] _ in self?.getPerson() }
+            .store(in: &cancelation)
     }
     
     // MARK: - Functions

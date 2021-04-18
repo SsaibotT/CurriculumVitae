@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="llE-ed-oB9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ke0-8L-MUf"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="G9t-tm-S6b"/>
@@ -28,7 +28,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="llE-ed-oB9" secondAttribute="bottom" id="6Yg-VZ-fZb"/>
-                            <constraint firstItem="llE-ed-oB9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dSe-Y4-oTT"/>
+                            <constraint firstItem="llE-ed-oB9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dSe-Y4-oTT"/>
                             <constraint firstItem="llE-ed-oB9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f7e-6K-hjJ"/>
                             <constraint firstItem="llE-ed-oB9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tAq-k8-cGZ"/>
                         </constraints>

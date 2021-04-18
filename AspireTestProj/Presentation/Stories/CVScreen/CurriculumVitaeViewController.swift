@@ -17,6 +17,7 @@ class CurriculumVitaeViewController: UIViewController {
     // MARK: - Properties
     private var cancelation: Set<AnyCancellable> = []
     let viewModel = CurriculumVitaeViewModel()
+    var refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,9 +27,14 @@ class CurriculumVitaeViewController: UIViewController {
         configureVM()
     }
     
-    // MARK: - Functions
+    // MARK: - Configure UI
     func configureUI() {
         
+        configureTableViewRegistering()
+        configurePullToRefresh()
+    }
+    
+    func configureTableViewRegistering() {
         tableView.register(PersonalInfoTableViewCell.nib, forCellReuseIdentifier: PersonalInfoTableViewCell.reuseIdentifier)
         tableView.register(SummaryTableViewCell.nib, forCellReuseIdentifier: SummaryTableViewCell.reuseIdentifier)
         tableView.register(WorkExperienceTableViewCell.nib, forCellReuseIdentifier: WorkExperienceTableViewCell.reuseIdentifier)
@@ -36,11 +42,25 @@ class CurriculumVitaeViewController: UIViewController {
         tableView.register(SkillsTableViewCell.nib, forCellReuseIdentifier: SkillsTableViewCell.reuseIdentifier)
     }
     
+    func configurePullToRefresh() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        viewModel.loadPerson.send(())
+    }
+    
+    // MARK: - Configure VM
     func configureVM() {
         
         viewModel.$person
             .dropFirst()
-            .sink { [weak self] _ in self?.tableView.reloadData() }
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
             .store(in: &cancelation)
     }
 }
